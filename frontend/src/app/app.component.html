@@ -1,0 +1,45 @@
+<h1>Our users</h1>
+
+<ul>
+  @if (users$ | async; as users) {
+    @for (user of users; track user.id) {
+      <li>
+        {{ user.name }} <button (click)="deleteUser(user.id)">Delete</button>
+      </li>
+    }
+  } @else {
+    <span>Loading users...</span>
+  }
+</ul>
+
+<h1>External users</h1>
+
+<ul>
+  @if (externalUsers$ | async; as externalUsers) {
+    @for (externalUser of externalUsers; track externalUser.id) {
+      <li>
+        {{ externalUser.name }}
+      </li>
+    }
+  } @else if (externalUsersFailed) {
+    <span
+      >An error occured fetching external users, please try again later.</span
+    >
+  } @else {
+    <span>Loading external users...</span>
+  }
+</ul>
+
+<h1>GraphQL users</h1>
+
+<ul>
+  @if (usersFromGraphql$ | async; as usersFromGraphql) {
+    @for (userFromGraphql of usersFromGraphql; track userFromGraphql.name) {
+      <li>
+        {{ userFromGraphql.name }}
+      </li>
+    }
+  } @else {
+    <span>Loading GraphQL users...</span>
+  }
+</ul>

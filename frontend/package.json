@@ -1,0 +1,58 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
+    "generate-api-schema": "openapi-typescript ../openapi.json -o src/api-schema.d.ts",
+    "generate-gql-schema": "graphql-codegen --config codegen.ts",
+    "serve-development-dist": "ng build --configuration development && http-server -p 8080 -c-1 dist/browser"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "@apollo/client": "^3.13.8",
+    "apollo-angular": "^10.0.3",
+    "graphql": "^16.11.0",
+    "http-server": "^14.1.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.11",
+    "@angular/cli": "^19.2.11",
+    "@angular/compiler-cli": "^19.2.0",
+    "@faker-js/faker": "^9.7.0",
+    "@graphql-codegen/cli": "5.0.6",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-apollo-angular": "^4.0.0",
+    "@graphql-codegen/typescript-operations": "^4.6.1",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "msw": "^2.8.2",
+    "openapi-msw": "^1.2.0",
+    "openapi-typescript": "^7.8.0",
+    "tsx": "^4.19.4",
+    "typescript": "~5.7.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
